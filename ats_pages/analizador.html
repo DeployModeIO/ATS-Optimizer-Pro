@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analizador ATS — ATS Optimizer Pro</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#07070d;--card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.08);--text:#e8e8f0;--muted:#8a8aa0;--accent:#6366f1;--accent2:#a855f7;--success:#10b981;--warn:#f59e0b;--danger:#ef4444}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.15),transparent 40%),radial-gradient(circle at 80% 80%,rgba(168,85,247,.12),transparent 40%);z-index:-1}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:100;background:rgba(7,7,13,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px}
+.nav-links a:hover{color:var(--text)}
+main{padding:40px 0}
+h1{font-size:36px;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,#fff,#a5a5c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:var(--muted);margin-bottom:30px}
+.upload-zone{border:2px dashed var(--border);border-radius:20px;padding:60px 30px;text-align:center;background:var(--card);transition:all .3s;margin-bottom:30px}
+.upload-zone.drag{border-color:var(--accent);background:rgba(99,102,241,.05)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-size:14px;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--border)}
+textarea{width:100%;min-height:200px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;color:var(--text);font-family:inherit;font-size:14px;resize:vertical;margin:16px 0}
+.results{display:none;margin-top:40px}
+.results.active{display:block}
+.score-circle{width:180px;height:180px;border-radius:50%;background:conic-gradient(var(--accent) 0deg,var(--border) 0deg);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative}
+.score-circle::before{content:'';position:absolute;inset:10px;background:var(--bg);border-radius:50%}
+.score-value{position:relative;font-size:48px;font-weight:800}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
+.card h3{margin-bottom:12px;font-size:18px}
+.metric{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)}
+.metric:last-child{border-bottom:none}
+.metric-label{color:var(--muted);font-size:14px}
+.metric-value{font-weight:600}
+.tag{display:inline-block;padding:4px 10px;border-radius:6px;font-size:12px;margin:4px}
+.tag-ok{background:rgba(16,185,129,.15);color:var(--success)}
+.tag-warn{background:rgba(245,158,11,.15);color:var(--warn)}
+.tag-err{background:rgba(239,68,68,.15);color:var(--danger)}
+footer{border-top:1px solid var(--border);padding:50px 0 30px;margin-top:60px;background:rgba(13,13,24,.5)}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:30px}
+.footer-col h4{font-size:14px;margin-bottom:16px}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:4px 0}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;color:var(--muted);font-size:13px;text-align:center}
+.donate-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff9000,#ff5e00);color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px}
+.privacy-note{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:12px;font-size:13px;color:var(--success);text-align:center;margin-top:16px}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">ATS OptimizerPRO</a>
+<nav class="nav-links">
+<a href="analizador.html">Analizador</a>
+<a href="editor.html">Editor</a>
+<a href="keywords.html">Keywords</a>
+<a href="plantillas.html">Plantillas</a>
+<a href="guias.html">Guías</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<h1>🔍 Analizador ATS</h1>
+<p class="subtitle">Escanea tu CV contra 40+ criterios de compatibilidad ATS y obtén un reporte detallado al instante.</p>
+
+<div class="upload-zone" id="dropZone">
+<h3 style="margin-bottom:12px">📄 Arrastra tu CV aquí</h3>
+<p style="color:var(--muted);margin-bottom:20px">Formatos: .pdf · .txt · .docx</p>
+<input type="file" id="fileInput" accept=".pdf,.txt,.docx" style="display:none">
+<button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">Seleccionar archivo</button>
+<button class="btn btn-ghost" onclick="loadExample()" style="margin-left:8px">Probar con ejemplo</button>
+<p class="privacy-note" style="margin-top:20px">🔒 Procesamiento 100% local · Tus datos nunca salen de tu navegador</p>
+</div>
+
+<div style="text-align:center;color:var(--muted);margin:20px 0">— O pega el texto directamente —</div>
+
+<textarea id="cvText" placeholder="Pega aquí el contenido de tu CV..."></textarea>
+<div style="text-align:center">
+<button class="btn btn-primary" onclick="analyzeCV()">🚀 Analizar CV</button>
+</div>
+
+<div class="results" id="results">
+<h2 style="margin:40px 0 20px;text-align:center">📊 Resultados del análisis</h2>
+<div class="score-circle" id="scoreCircle">
+<div class="score-value" id="scoreValue">0</div>
+</div>
+<p style="text-align:center;color:var(--muted);margin-bottom:40px" id="scoreMessage">Tu CV está optimizado</p>
+
+<div class="grid-2">
+<div class="card">
+<h3>📋 Métricas principales</h3>
+<div id="metrics"></div>
+</div>
+<div class="card">
+<h3>🔑 Keywords detectadas</h3>
+<div id="keywords"></div>
+</div>
+<div class="card">
+<h3>✅ Fortalezas</h3>
+<div id="strengths"></div>
+</div>
+<div class="card">
+<h3>⚠️ Problemas a corregir</h3>
+<div id="problems"></div>
+</div>
+</div>
+
+<div style="text-align:center;margin-top:40px">
+<button class="btn btn-primary" onclick="window.location.href='editor.html'">✏️ Ir al editor</button>
+<button class="btn btn-ghost" onclick="exportReport()" style="margin-left:8px">📥 Exportar reporte</button>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<h4>ATS Optimizer Pro</h4>
+<p style="color:var(--muted);font-size:13px">100% gratis · Sin registro</p>
+<a href="https://luisrivero1.gumroad.com/l/axwslt" target="_blank" class="donate-btn" style="margin-top:12px">☕ Apoyar</a>
+</div>
+<div class="footer-col">
+<h4>Producto</h4>
+<a href="analizador.html">Analizador</a>
+<a href="editor.html">Editor</a>
+<a href="plantillas.html">Plantillas</a>
+<a href="comparador.html">Comparador</a>
+</div>
+<div class="footer-col">
+<h4>Recursos</h4>
+<a href="guias.html">Guías</a>
+<a href="ejemplos.html">Ejemplos</a>
+<a href="blog.html">Blog</a>
+<a href="faq.html">FAQ</a>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<a href="privacidad.html">Privacidad</a>
+<a href="terminos.html">Términos</a>
+<a href="cookies.html">Cookies</a>
+</div>
+</div>
+<div class="privacy-note">🔒 Procesamiento 100% local · No recopilamos datos · Todo gratis</div>
+<div class="footer-bottom">© 2026 ATS Optimizer Pro · v3.0.1</div>
+</div>
+</footer>
+
+<script>
+const dropZone=document.getElementById('dropZone');
+const fileInput=document.getElementById('fileInput');
+dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag')});
+dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag'));
+dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag');handleFile(e.dataTransfer.files[0])});
+fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
+
+function handleFile(file){
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{document.getElementById('cvText').value=e.target.result;analyzeCV()};
+  reader.readAsText(file);
+}
+
+function loadExample(){
+  document.getElementById('cvText').value=`JUAN PÉREZ
+Desarrollador Full Stack Senior
+juan@email.com · +34 600 000 000 · linkedin.com/in/juanperez
+
+RESUMEN
+Desarrollador Full Stack con 8 años de experiencia en aplicaciones web escalables. Especializado en React, Node.js y AWS. He liderado equipos de 5+ desarrolladores y aumentado el rendimiento de aplicaciones en un 40%.
+
+EXPERIENCIA
+Desarrollador Senior — Tech Solutions S.L.
+2021 - Presente
+- Lideré migración de monolito a microservicios, reduciendo costos de infraestructura en 35%
+- Implementé pipeline CI/CD que redujo tiempo de despliegue de 2h a 15min
+- Mentoría a 4 desarrolladores junior
+
+Desarrollador Full Stack — StartupXYZ
+2018 - 2021
+- Desarrollé aplicación SaaS usada por 10,000+ usuarios
+- Optimicé queries SQL mejorando rendimiento en 60%
+
+EDUCACIÓN
+Ingeniería Informática — Universidad Complutense (2014-2018)
+
+SKILLS
+JavaScript, TypeScript, React, Node.js, Python, AWS, Docker, PostgreSQL, MongoDB, Git`;
+  analyzeCV();
+}
+
+function analyzeCV(){
+  const text=document.getElementById('cvText').value.trim();
+  if(!text){alert('Pega o carga tu CV primero');return}
+  
+  const words=text.split(/\s+/).length;
+  const lines=text.split('\n').length;
+  const hasEmail=/\S+@\S+\.\S+/.test(text);
+  const hasPhone=/[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/.test(text);
+  const sections=['experiencia','educación','educacion','skills','habilidades','perfil','resumen','formación','formacion','certificaciones','proyectos'];
+  const foundSections=sections.filter(s=>text.toLowerCase().includes(s));
+  const hasNumbers=/\d+%|\d+\s*(años|usuarios|clientes|proyectos|equipo|equipo)/i.test(text);
+  const hasDates=/(19|20)\d{2}/.test(text);
+  const hasBullets=/[-•*]\s/.test(text);
+  
+  let score=0;
+  const metrics=[];
+  const strengths=[];
+  const problems=[];
+  
+  if(hasEmail){score+=10;strengths.push('Email de contacto detectado');metrics.push(['Email','✅'])}
+  else problems.push('Falta email de contacto');
+  if(hasPhone){score+=10;strengths.push('Teléfono detectado');metrics.push(['Teléfono','✅'])}
+  else problems.push('Falta teléfono');
+  if(foundSections.length>=4){score+=20;strengths.push(`${foundSections.length} secciones estándar detectadas`)}
+  else problems.push(`Solo ${foundSections.length} secciones detectadas (mínimo 4)`);
+  metrics.push(['Secciones',`${foundSections.length}/8`]);
+  if(hasNumbers){score+=15;strengths.push('Logros cuantificados con números')}
+  else problems.push('Falta cuantificación de logros (usa %, números)');
+  if(hasDates){score+=10;strengths.push('Fechas detectadas')}
+  else problems.push('Faltan fechas en la experiencia');
+  if(hasBullets){score+=10;strengths.push('Uso de bullets para listar logros')}
+  if(words>=200&&words<=800){score+=15;strengths.push(`Longitud óptima (${words} palabras)`)}
+  else if(words<200)problems.push(`CV muy corto (${words} palabras)`);
+  else problems.push(`CV muy largo (${words} palabras), ideal: 400-700`);
+  metrics.push(['Palabras',words]);
+  if(text.length<10000)score+=10;
+  else problems.push('Texto muy denso, puede causar problemas de parsing');
+  
+  score=Math.min(100,Math.max(0,score));
+  
+  document.getElementById('results').classList.add('active');
+  const circle=document.getElementById('scoreCircle');
+  circle.style.background=`conic-gradient(var(--accent) ${score*3.6}deg,var(--border) 0deg)`;
+  document.getElementById('scoreValue').textContent=score;
+  
+  let msg=score>=80?'🎉 ¡Excelente! Tu CV está muy bien optimizado':score>=60?'👍 Buen CV, pero hay mejoras posibles':'⚠️ Tu CV necesita mejoras para pasar filtros ATS';
+  document.getElementById('scoreMessage').textContent=msg;
+  
+  document.getElementById('metrics').innerHTML=metrics.map(m=>`<div class="metric"><span class="metric-label">${m[0]}</span><span class="metric-value">${m[1]}</span></div>`).join('');
+  
+  const techKeywords=['javascript','python','react','node','aws','docker','sql','git','html','css','java','php','typescript'];
+  const foundKw=techKeywords.filter(k=>text.toLowerCase().includes(k));
+  document.getElementById('keywords').innerHTML=foundKw.length?foundKw.map(k=>`<span class="tag tag-ok">${k}</span>`).join(''):'<p style="color:var(--muted)">No se detectaron keywords técnicas. Añade habilidades relevantes.</p>';
+  
+  document.getElementById('strengths').innerHTML=strengths.length?strengths.map(s=>`<div class="metric"><span class="tag tag-ok">✓</span><span class="metric-label">${s}</span></div>`).join(''):'<p style="color:var(--muted)">Pocas fortalezas detectadas</p>';
+  document.getElementById('problems').innerHTML=problems.length?problems.map(p=>`<div class="metric"><span class="tag tag-warn">!</span><span class="metric-label">${p}</span></div>`).join(''):'<p style="color:var(--muted)">¡No se detectaron problemas!</p>';
+  
+  document.getElementById('results').scrollIntoView({behavior:'smooth'});
+}
+
+function exportReport(){
+  const text=`REPORTE ATS - ${new Date().toLocaleDateString()}\n\nPuntuación: ${document.getElementById('scoreValue').textContent}/100\n\nMensaje: ${document.getElementById('scoreMessage').textContent}`;
+  const blob=new Blob([text],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='reporte-ats.txt';
+  a.click();
+}
+</script>
+</body>
+</html>

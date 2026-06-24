@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creador de CV paso a paso — ATS Optimizer Pro</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#07070d;--card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.08);--text:#e8e8f0;--muted:#8a8aa0;--accent:#6366f1;--accent2:#a855f7}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.15),transparent 40%),radial-gradient(circle at 80% 80%,rgba(168,85,247,.12),transparent 40%);z-index:-1}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:100;background:rgba(7,7,13,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px}
+main{padding:40px 0}
+h1{font-size:32px;font-weight:800;margin-bottom:8px}
+.subtitle{color:var(--muted);margin-bottom:30px}
+.progress{display:flex;justify-content:space-between;margin-bottom:30px;position:relative}
+.progress::before{content:'';position:absolute;top:15px;left:0;right:0;height:2px;background:var(--border);z-index:0}
+.step{position:relative;z-index:1;text-align:center;flex:1}
+.step-circle{width:32px;height:32px;border-radius:50%;background:var(--card);border:2px solid var(--border);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+.step.active .step-circle{background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:var(--accent);color:#fff}
+.step.done .step-circle{background:var(--success);border-color:var(--success);color:#fff}
+.step-label{font-size:11px;color:var(--muted)}
+.step.active .step-label{color:var(--text)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px;margin-bottom:20px}
+.card h2{margin-bottom:20px}
+.field{margin-bottom:20px}
+.field label{display:block;margin-bottom:8px;font-size:14px;font-weight:500}
+.field input,.field textarea{width:100%;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--text);font-family:inherit;font-size:14px}
+.field textarea{min-height:100px;resize:vertical}
+.field small{color:var(--muted);font-size:12px;margin-top:4px;display:block}
+.btn{padding:12px 24px;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:14px;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.btn-group{display:flex;gap:12px;justify-content:space-between;margin-top:24px}
+.hidden{display:none}
+.preview{background:#fff;color:#111;padding:30px;border-radius:12px;font-family:Georgia,serif;font-size:13px;line-height:1.5;white-space:pre-wrap;min-height:400px}
+footer{border-top:1px solid var(--border);padding:50px 0 30px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:30px}
+.footer-col h4{font-size:14px;margin-bottom:16px}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:4px 0}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;color:var(--muted);font-size:13px;text-align:center}
+.donate-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff9000,#ff5e00);color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px}
+.privacy-note{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:12px;font-size:13px;color:var(--success);text-align:center;margin-top:16px}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">ATS OptimizerPRO</a>
+<nav class="nav-links">
+<a href="analizador.html">Analizador</a>
+<a href="editor.html">Editor</a>
+<a href="keywords.html">Keywords</a>
+<a href="plantillas.html">Plantillas</a>
+<a href="guias.html">Guías</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<h1>✨ Creador de CV</h1>
+<p class="subtitle">Crea tu CV ATS-friendly paso a paso. Solo toma 10 minutos.</p>
+
+<div class="progress">
+<div class="step active" data-step="1"><div class="step-circle">1</div><div class="step-label">Contacto</div></div>
+<div class="step" data-step="2"><div class="step-circle">2</div><div class="step-label">Resumen</div></div>
+<div class="step" data-step="3"><div class="step-circle">3</div><div class="step-label">Experiencia</div></div>
+<div class="step" data-step="4"><div class="step-circle">4</div><div class="step-label">Educación</div></div>
+<div class="step" data-step="5"><div class="step-circle">5</div><div class="step-label">Skills</div></div>
+<div class="step" data-step="6"><div class="step-circle">6</div><div class="step-label">Final</div></div>
+</div>
+
+<div id="step1" class="card">
+<h2>📇 Datos de contacto</h2>
+<div class="field"><label>Nombre completo *</label><input type="text" id="f_name" placeholder="Juan Pérez García"></div>
+<div class="field"><label>Puesto objetivo *</label><input type="text" id="f_title" placeholder="Desarrollador Full Stack Senior"></div>
+<div class="field"><label>Email *</label><input type="email" id="f_email" placeholder="juan@email.com"></div>
+<div class="field"><label>Teléfono</label><input type="tel" id="f_phone" placeholder="+34 600 000 000"></div>
+<div class="field"><label>LinkedIn</label><input type="text" id="f_linkedin" placeholder="linkedin.com/in/juanperez"></div>
+<div class="field"><label>Portfolio / GitHub</label><input type="text" id="f_portfolio" placeholder="github.com/juanperez"></div>
+<div class="btn-group"><div></div><button class="btn btn-primary" onclick="nextStep(2)">Siguiente →</button></div>
+</div>
+
+<div id="step2" class="card hidden">
+<h2>📝 Resumen profesional</h2>
+<div class="field"><label>Resumen (2-4 líneas)</label><textarea id="f_summary" placeholder="Profesional con X años de experiencia en... Especializado en... Logros destacados..."></textarea><small>Incluye años de experiencia, especialización y 1-2 logros clave con métricas.</small></div>
+<div class="btn-group"><button class="btn btn-ghost" onclick="nextStep(1)">← Anterior</button><button class="btn btn-primary" onclick="nextStep(3)">Siguiente →</button></div>
+</div>
+
+<div id="step3" class="card hidden">
+<h2>💼 Experiencia profesional</h2>
+<div id="expContainer">
+<div class="exp-block" style="border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px">
+<div class="field"><label>Puesto</label><input type="text" class="exp-position" placeholder="Desarrollador Senior"></div>
+<div class="field"><label>Empresa</label><input type="text" class="exp-company" placeholder="Tech Company S.L."></div>
+<div class="field"><label>Período</label><input type="text" class="exp-period" placeholder="2021 - Presente"></div>
+<div class="field"><label>Logros (uno por línea, usa bullets -)</label><textarea class="exp-achievements" placeholder="- Aumenté ventas un 35%...&#10;- Lideré equipo de 5 personas..."></textarea></div>
+</div>
+</div>
+<button class="btn btn-ghost" onclick="addExperience()">+ Añadir otra experiencia</button>
+<div class="btn-group"><button class="btn btn-ghost" onclick="nextStep(2)">← Anterior</button><button class="btn btn-primary" onclick="nextStep(4)">Siguiente →</button></div>
+</div>
+
+<div id="step4" class="card hidden">
+<h2>🎓 Educación</h2>
+<div id="eduContainer">
+<div class="exp-block" style="border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px">
+<div class="field"><label>Título</label><input type="text" class="edu-degree" placeholder="Ingeniería Informática"></div>
+<div class="field"><label>Universidad / Centro</label><input type="text" class="edu-school" placeholder="Universidad Complutense"></div>
+<div class="field"><label>Período</label><input type="text" class="edu-period" placeholder="2014 - 2018"></div>
+</div>
+</div>
+<button class="btn btn-ghost" onclick="addEducation()">+ Añadir otra educación</button>
+<div class="btn-group"><button class="btn btn-ghost" onclick="nextStep(3)">← Anterior</button><button class="btn btn-primary" onclick="nextStep(5)">Siguiente →</button></div>
+</div>
+
+<div id="step5" class="card hidden">
+<h2>🔧 Skills y habilidades</h2>
+<div class="field"><label>Habilidades técnicas (separadas por ·)</label><textarea id="f_skills" placeholder="JavaScript · React · Node.js · Python · AWS · Docker"></textarea></div>
+<div class="field"><label>Idiomas</label><textarea id="f_languages" placeholder="Español (nativo) · Inglés (C1) · Francés (B1)"></textarea></div>
+<div class="field"><label>Certificaciones (opcional)</label><textarea id="f_certs" placeholder="AWS Solutions Architect (2024)&#10;Scrum Master PSM I (2023)"></textarea></div>
+<div class="btn-group"><button class="btn btn-ghost" onclick="nextStep(4)">← Anterior</button><button class="btn btn-primary" onclick="nextStep(6)">Generar CV →</button></div>
+</div>
+
+<div id="step6" class="card hidden">
+<h2>🎉 Tu CV está listo</h2>
+<p style="color:var(--muted);margin-bottom:20px">Revisa la vista previa y descárgalo en formato texto.</p>
+<div class="preview" id="preview"></div>
+<div class="btn-group">
+<button class="btn btn-ghost" onclick="nextStep(5)">← Editar</button>
+<div style="display:flex;gap:12px">
+<button class="btn btn-primary" onclick="downloadCV()">📥 Descargar CV</button>
+<a href="analizador.html" class="btn btn-primary">🔍 Analizar CV</a>
+</div>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col"><h4>ATS Optimizer Pro</h4><p style="color:var(--muted);font-size:13px">100% gratis</p><a href="https://luisrivero1.gumroad.com/l/axwslt" target="_blank" class="donate-btn" style="margin-top:12px">☕ Apoyar</a></div>
+<div class="footer-col"><h4>Producto</h4><a href="analizador.html">Analizador</a><a href="editor.html">Editor</a><a href="plantillas.html">Plantillas</a><a href="comparador.html">Comparador</a></div>
+<div class="footer-col"><h4>Recursos</h4><a href="guias.html">Guías</a><a href="ejemplos.html">Ejemplos</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a></div>
+<div class="footer-col"><h4>Legal</h4><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="cookies.html">Cookies</a></div>
+</div>
+<div class="privacy-note">🔒 Procesamiento 100% local · No recopilamos datos · Todo gratis</div>
+<div class="footer-bottom">© 2026 ATS Optimizer Pro · v3.0.1</div>
+</div>
+</footer>
+
+<script>
+function nextStep(n){
+  document.querySelectorAll('[id^="step"]').forEach(s=>s.classList.add('hidden'));
+  document.getElementById('step'+n).classList.remove('hidden');
+  document.querySelectorAll('.step').forEach(s=>{
+    const sn=parseInt(s.dataset.step);
+    s.classList.remove('active','done');
+    if(sn<n)s.classList.add('done');
+    else if(sn===n)s.classList.add('active');
+  });
+  if(n===6)generatePreview();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function addExperience(){
+  const block=document.createElement('div');
+  block.className='exp-block';
+  block.style.cssText='border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px';
+  block.innerHTML=`
+    <div class="field"><label>Puesto</label><input type="text" class="exp-position"></div>
+    <div class="field"><label>Empresa</label><input type="text" class="exp-company"></div>
+    <div class="field"><label>Período</label><input type="text" class="exp-period"></div>
+    <div class="field"><label>Logros</label><textarea class="exp-achievements"></textarea></div>
+    <button class="btn btn-ghost" onclick="this.parentElement.remove()" style="font-size:12px;padding:6px 12px">🗑 Eliminar</button>
+  `;
+  document.getElementById('expContainer').appendChild(block);
+}
+
+function addEducation(){
+  const block=document.createElement('div');
+  block.className='exp-block';
+  block.style.cssText='border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px';
+  block.innerHTML=`
+    <div class="field"><label>Título</label><input type="text" class="edu-degree"></div>
+    <div class="field"><label>Universidad</label><input type="text" class="edu-school"></div>
+    <div class="field"><label>Período</label><input type="text" class="edu-period"></div>
+    <button class="btn btn-ghost" onclick="this.parentElement.remove()" style="font-size:12px;padding:6px 12px">🗑 Eliminar</button>
+  `;
+  document.getElementById('eduContainer').appendChild(block);
+}
+
+function generatePreview(){
+  const name=v('f_name'),title=v('f_title'),email=v('f_email'),phone=v('f_phone'),linkedin=v('f_linkedin'),portfolio=v('f_portfolio');
+  const summary=v('f_summary'),skills=v('f_skills'),langs=v('f_languages'),certs=v('f_certs');
+  
+  let contact=[email,phone,linkedin,portfolio].filter(Boolean).join(' · ');
+  let cv=`${name.toUpperCase()}\n${title}\n${contact}\n\n`;
+  if(summary)cv+=`RESUMEN\n${summary}\n\n`;
+  
+  cv+=`EXPERIENCIA\n`;
+  document.querySelectorAll('#expContainer .exp-block').forEach(b=>{
+    const pos=b.querySelector('.exp-position').value;
+    const comp=b.querySelector('.exp-company').value;
+    const per=b.querySelector('.exp-period').value;
+    const ach=b.querySelector('.exp-achievements').value;
+    if(pos||comp)cv+=`${pos} — ${comp}\n${per}\n${ach}\n\n`;
+  });
+  
+  cv+=`EDUCACIÓN\n`;
+  document.querySelectorAll('#eduContainer .exp-block').forEach(b=>{
+    const deg=b.querySelector('.edu-degree').value;
+    const sch=b.querySelector('.edu-school').value;
+    const per=b.querySelector('.edu-period').value;
+    if(deg||sch)cv+=`${deg} — ${sch} (${per})\n`;
+  });
+  cv+='\n';
+  
+  if(skills)cv+=`SKILLS\n${skills}\n\n`;
+  if(langs)cv+=`IDIOMAS\n${langs}\n\n`;
+  if(certs)cv+=`CERTIFICACIONES\n${certs}\n`;
+  
+  document.getElementById('preview').textContent=cv;
+}
+
+function v(id){return document.getElementById(id).value}
+
+function downloadCV(){
+  const text=document.getElementById('preview').textContent;
+  const blob=new Blob([text],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`cv-${v('f_name').replace(/\s+/g,'-').toLowerCase()||'mi-cv'}.txt`;
+  a.click();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparador CV vs Oferta — ATS Optimizer Pro</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#07070d;--card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.08);--text:#e8e8f0;--muted:#8a8aa0;--accent:#6366f1;--accent2:#a855f7;--success:#10b981}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.15),transparent 40%),radial-gradient(circle at 80% 80%,rgba(168,85,247,.12),transparent 40%);z-index:-1}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:100;background:rgba(7,7,13,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px}
+main{padding:40px 0}
+h1{font-size:32px;font-weight:800;margin-bottom:8px}
+.subtitle{color:var(--muted);margin-bottom:30px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
+.card h3{margin-bottom:12px}
+textarea{width:100%;min-height:250px;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:10px;padding:16px;color:var(--text);font-family:inherit;font-size:14px;resize:vertical}
+.btn{padding:12px 24px;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:14px}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.results{margin-top:30px;display:none}
+.results.active{display:block}
+.score-big{text-align:center;padding:40px;background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(168,85,247,.05));border-radius:16px;margin-bottom:20px}
+.score-num{font-size:72px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tag{display:inline-block;padding:6px 12px;border-radius:8px;font-size:13px;margin:4px}
+.tag-ok{background:rgba(16,185,129,.15);color:var(--success)}
+.tag-miss{background:rgba(239,68,68,.15);color:#ef4444}
+footer{border-top:1px solid var(--border);padding:50px 0 30px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:30px}
+.footer-col h4{font-size:14px;margin-bottom:16px}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:4px 0}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;color:var(--muted);font-size:13px;text-align:center}
+.donate-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff9000,#ff5e00);color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px}
+.privacy-note{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:12px;font-size:13px;color:var(--success);text-align:center;margin-top:16px}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">ATS OptimizerPRO</a>
+<nav class="nav-links">
+<a href="analizador.html">Analizador</a>
+<a href="editor.html">Editor</a>
+<a href="keywords.html">Keywords</a>
+<a href="plantillas.html">Plantillas</a>
+<a href="guias.html">Guías</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<h1>⚖️ Comparador CV vs Oferta</h1>
+<p class="subtitle">Descubre qué tan bien encaja tu CV con una oferta de trabajo específica.</p>
+
+<div class="grid-2">
+<div class="card">
+<h3>📋 Oferta de trabajo</h3>
+<textarea id="jobText" placeholder="Pega aquí la descripción completa del puesto..."></textarea>
+</div>
+<div class="card">
+<h3>📄 Tu CV</h3>
+<textarea id="cvText" placeholder="Pega aquí tu CV..."></textarea>
+</div>
+</div>
+
+<div style="text-align:center;margin-top:20px">
+<button class="btn btn-primary" onclick="compare()">🔍 Calcular match</button>
+</div>
+
+<div class="results" id="results">
+<div class="score-big">
+<div style="color:var(--muted);font-size:14px;text-transform:uppercase;margin-bottom:8px">Match Score</div>
+<div class="score-num" id="scoreNum">0%</div>
+<div id="scoreMsg" style="color:var(--muted);margin-top:8px"></div>
+</div>
+
+<div class="grid-2">
+<div class="card">
+<h3>✅ Keywords que SÍ tienes</h3>
+<div id="matched"></div>
+</div>
+<div class="card">
+<h3>❌ Keywords que te faltan</h3>
+<div id="missing"></div>
+</div>
+</div>
+
+<div class="card" style="margin-top:20px">
+<h3>💡 Recomendaciones</h3>
+<div id="recommendations" style="color:var(--muted)"></div>
+</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col"><h4>ATS Optimizer Pro</h4><p style="color:var(--muted);font-size:13px">100% gratis</p><a href="https://luisrivero1.gumroad.com/l/axwslt" target="_blank" class="donate-btn" style="margin-top:12px">☕ Apoyar</a></div>
+<div class="footer-col"><h4>Producto</h4><a href="analizador.html">Analizador</a><a href="editor.html">Editor</a><a href="plantillas.html">Plantillas</a><a href="comparador.html">Comparador</a></div>
+<div class="footer-col"><h4>Recursos</h4><a href="guias.html">Guías</a><a href="ejemplos.html">Ejemplos</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a></div>
+<div class="footer-col"><h4>Legal</h4><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="cookies.html">Cookies</a></div>
+</div>
+<div class="privacy-note">🔒 Procesamiento 100% local · No recopilamos datos · Todo gratis</div>
+<div class="footer-bottom">© 2026 ATS Optimizer Pro · v3.0.1</div>
+</div>
+</footer>
+
+<script>
+const commonKw=['experiencia','años','equipo','liderar','gestionar','desarrollar','implementar','optimizar','analizar','coordinar','supervisar','planificar','estrategia','proyectos','resultados','objetivos','cliente','ventas','marketing','digital','datos','análisis','comunicación','trabajo en equipo','proactivo','resolutivo','inglés','español'];
+
+function extractKeywords(text){
+  const t=text.toLowerCase();
+  const words=t.match(/\b[a-záéíóúñ]{4,}\b/g)||[];
+  const freq={};
+  words.forEach(w=>{if(!commonKw.includes(w))freq[w]=(freq[w]||0)+1});
+  return Object.entries(freq).filter(([_,c])=>c>=2).sort((a,b)=>b[1]-a[1]).slice(0,30).map(([w])=>w);
+}
+
+function compare(){
+  const job=document.getElementById('jobText').value.trim();
+  const cv=document.getElementById('cvText').value.trim();
+  if(!job||!cv){alert('Pega ambos textos');return}
+  
+  const jobKw=extractKeywords(job);
+  const cvLower=cv.toLowerCase();
+  const matched=jobKw.filter(k=>cvLower.includes(k));
+  const missing=jobKw.filter(k=>!cvLower.includes(k));
+  const score=jobKw.length?Math.round(matched.length/jobKw.length*100):0;
+  
+  document.getElementById('scoreNum').textContent=score+'%';
+  let msg='';
+  if(score>=80)msg='🎉 ¡Excelente match! Tu CV encaja muy bien con la oferta';
+  else if(score>=60)msg='👍 Buen match, pero puedes optimizarlo más';
+  else if(score>=40)msg='⚠️ Match moderado. Necesitas ajustar tu CV';
+  else msg='❌ Match bajo. Te recomendamos adaptar tu CV a esta oferta';
+  document.getElementById('scoreMsg').textContent=msg;
+  
+  document.getElementById('matched').innerHTML=matched.length?matched.map(k=>`<span class="tag tag-ok">${k}</span>`).join(''):'<p style="color:var(--muted)">Ninguna keyword detectada</p>';
+  document.getElementById('missing').innerHTML=missing.length?missing.map(k=>`<span class="tag tag-miss">${k}</span>`).join(''):'<p style="color:var(--success)">¡Tienes todas las keywords!</p>';
+  
+  let rec=`<p><strong>Keywords detectadas en la oferta:</strong> ${jobKw.length}</p>`;
+  rec+=`<p><strong>Coincidencias:</strong> ${matched.length} de ${jobKw.length}</p>`;
+  rec+=`<p style="margin-top:12px"><strong>Consejos:</strong></p><ul style="margin-left:20px;margin-top:8px">`;
+  if(score<60)rec+=`<li>Añade las keywords faltantes en tu resumen y experiencia</li>`;
+  if(missing.length>0)rec+=`<li>Incorpora "${missing.slice(0,3).join('", "')}" de forma natural en tu CV</li>`;
+  rec+=`<li>Usa las mismas palabras exactas que la oferta (los ATS buscan coincidencias literales)</li>`;
+  rec+=`<li>Cuantifica logros relacionados con las keywords clave</li></ul>`;
+  document.getElementById('recommendations').innerHTML=rec;
+  
+  document.getElementById('results').classList.add('active');
+  document.getElementById('results').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

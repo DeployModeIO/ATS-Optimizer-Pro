@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — ATS Optimizer Pro</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#07070d;--card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.08);--text:#e8e8f0;--muted:#8a8aa0;--accent:#6366f1;--accent2:#a855f7}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.15),transparent 40%),radial-gradient(circle at 80% 80%,rgba(168,85,247,.12),transparent 40%);z-index:-1}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:100;background:rgba(7,7,13,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px}
+main{padding:40px 0}
+h1{font-size:32px;font-weight:800;margin-bottom:8px}
+.subtitle{color:var(--muted);margin-bottom:30px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.post{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;cursor:pointer;transition:all .3s}
+.post:hover{border-color:var(--accent);transform:translateY(-4px)}
+.post-tag{display:inline-block;padding:4px 10px;background:rgba(99,102,241,.15);color:var(--accent);border-radius:6px;font-size:11px;text-transform:uppercase;margin-bottom:12px}
+.post h3{font-size:18px;margin-bottom:8px}
+.post-meta{color:var(--muted);font-size:12px;margin-bottom:12px}
+.post p{color:var(--muted);font-size:14px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:1000;overflow-y:auto;padding:40px 20px}
+.modal.active{display:flex;align-items:flex-start;justify-content:center}
+.modal-content{background:var(--bg2,#0d0d18);border:1px solid var(--border);border-radius:16px;max-width:800px;width:100%;padding:40px;position:relative}
+.modal-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer}
+.modal h2{margin-bottom:12px}
+.modal p{color:var(--muted);margin-bottom:12px}
+.modal h3{margin:20px 0 10px;color:var(--accent)}
+.modal ul{margin-left:20px;color:var(--muted)}
+footer{border-top:1px solid var(--border);padding:50px 0 30px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:30px}
+.footer-col h4{font-size:14px;margin-bottom:16px}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:4px 0}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;color:var(--muted);font-size:13px;text-align:center}
+.donate-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff9000,#ff5e00);color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px}
+.privacy-note{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:12px;font-size:13px;color:var(--success);text-align:center;margin-top:16px}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">ATS OptimizerPRO</a>
+<nav class="nav-links">
+<a href="analizador.html">Analizador</a>
+<a href="editor.html">Editor</a>
+<a href="keywords.html">Keywords</a>
+<a href="plantillas.html">Plantillas</a>
+<a href="guias.html">Guías</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<h1>📰 Blog</h1>
+<p class="subtitle">Artículos, consejos y novedades sobre CVs, ATS y búsqueda de empleo.</p>
+<div class="grid-3" id="posts"></div>
+</main>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal()">✕</button>
+<div id="modalBody"></div>
+</div>
+</div>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col"><h4>ATS Optimizer Pro</h4><p style="color:var(--muted);font-size:13px">100% gratis</p><a href="https://luisrivero1.gumroad.com/l/axwslt" target="_blank" class="donate-btn" style="margin-top:12px">☕ Apoyar</a></div>
+<div class="footer-col"><h4>Producto</h4><a href="analizador.html">Analizador</a><a href="editor.html">Editor</a><a href="plantillas.html">Plantillas</a><a href="comparador.html">Comparador</a></div>
+<div class="footer-col"><h4>Recursos</h4><a href="guias.html">Guías</a><a href="ejemplos.html">Ejemplos</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a></div>
+<div class="footer-col"><h4>Legal</h4><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="cookies.html">Cookies</a></div>
+</div>
+<div class="privacy-note">🔒 Procesamiento 100% local · No recopilamos datos · Todo gratis</div>
+<div class="footer-bottom">© 2026 ATS Optimizer Pro · v3.0.1</div>
+</div>
+</footer>
+
+<script>
+const posts=[
+{tag:'Guía',title:'Los 10 errores que hacen que tu CV sea descartado por ATS',date:'25 jun 2026',read:'8 min',excerpt:'Descubre los errores más comunes que cometen los candidatos y cómo evitarlos.',content:`<h2>Los 10 errores que hacen que tu CV sea descartado por ATS</h2><p>El 75% de los CVs nunca llegan a ojos de un reclutador. Estos son los errores más comunes:</p><h3>1. Formato incompatible</h3><p>Usar columnas, tablas, iconos o fuentes no estándar. Los parsers ATS no pueden leer estos elementos correctamente.</p><h3>2. Falta de keywords</h3><p>No incluir las palabras exactas de la oferta. Los ATS buscan coincidencias literales.</p><h3>3. Logros no cuantificados</h3><p>Decir "responsable de ventas" en lugar de "aumenté ventas 35%". Los números importan.</p><h3>4. Secciones mal nombradas</h3><p>Usar "Mi trayectoria" en vez de "Experiencia". Los ATS buscan nombres estándar.</p><h3>5. Foto incluida</h3><p>En muchos países es motivo de descarte inmediato por políticas anti-discriminación.</p><h3>6. Email poco profesional</h3><p>caritopiola99@gmail.com no funciona. Usa nombre.apellido@gmail.com</p><h3>7. CV genérico</h3><p>Enviar el mismo CV a todas las ofertas. Debes adaptar cada CV a la oferta específica.</p><h3>8. Demasiado largo</h3><p>Más de 2 páginas para perfiles con menos de 15 años de experiencia.</p><h3>9. Errores ortográficos</h3><p>Los ATS pueden penalizar, los reclutadores definitivamente descartan.</p><h3>10. Información irrelevante</h3><p>Incluir hobbies no relacionados, referencias, o datos personales excesivos.</p>`},
+{tag:'Tendencias',title:'Cómo la IA está cambiando los ATS en 2026',date:'20 jun 2026',read:'6 min',excerpt:'Los sistemas de selección automática ahora usan IA avanzada. Esto es lo que cambia.',content:`<h2>Cómo la IA está cambiando los ATS en 2026</h2><p>Los ATS han evolucionado enormemente. Ya no solo buscan keywords, ahora entienden contexto y semántica.</p><h3>Análisis semántico</h3><p>Los ATS modernos entienden que "desarrollador" y "programador" son similares, pero aún priorizan coincidencias exactas.</p><h3>Scoring predictivo</h3><p>Usan machine learning para predecir qué candidatos tendrán mejor desempeño basándose en datos históricos.</p><h3>Análisis de video-entrevistas</h3><p>Algunos ATS analizan lenguaje corporal, tono de voz y expresiones faciales en entrevistas grabadas.</p><h3>Detección de sesgos</h3><p>Las nuevas versiones están diseñadas para reducir sesgos inconscientes en la selección.</p><h3>Qué significa para ti</h3><ul><li>La calidad del contenido importa más que nunca</li><li>Contexto y coherencia son evaluados</li><li>Los logros cuantificados siguen siendo clave</li><li>La autenticidad es más valorada</li></ul>`},
+{tag:'Consejos',title:'CV para cambiar de sector: guía completa',date:'15 jun 2026',read:'10 min',excerpt:'¿Quieres hacer una transición de carrera? Así debe ser tu CV para tener éxito.',content:`<h2>CV para cambiar de sector: guía completa</h2><p>Cambiar de sector es difícil pero posible. Tu CV debe destacar habilidades transferibles.</p><h3>1. Resume tus habilidades transferibles</h3><p>Liderazgo, gestión de proyectos, análisis de datos, comunicación... son valiosas en cualquier sector.</p><h3>2. Usa un resumen potente</h3><p>Explica tu motivación para el cambio y cómo tu experiencia previa aporta valor al nuevo sector.</p><h3>3. Reordena secciones</h3><p>Si tienes formación relevante, ponla antes que experiencia. Destaja cursos y certificaciones del nuevo sector.</p><h3>4. Keywords del nuevo sector</h3><p>Investiga la terminología del sector al que aspiras e inclúyela en tu CV.</p><h3>5. Proyectos personales</h3><p>Si no tienes experiencia laboral en el nuevo sector, muestra proyectos, voluntariados o freelance.</p><h3>6. Networking primero</h3><p>Antes de aplicar, conecta con profesionales del sector. Un contacto interno vale más que 100 CVs.</p>`},
+{tag:'Técnico',title:'Workday vs Greenhouse: diferencias para candidatos',date:'10 jun 2026',read:'5 min',excerpt:'Cada ATS tiene sus particularidades. Aprende a optimizar para cada uno.',content:`<h2>Workday vs Greenhouse: diferencias para candidatos</h2><p>No todos los ATS son iguales. Saber cuál usa la empresa te da ventaja.</p><h3>Workday</h3><ul><li>Usado por Fortune 500 y grandes corporaciones</li><li>Prioriza estructura clara y secciones estándar</li><li>Valora experiencia cronológica bien definida</li><li>Keywords importantes pero contexto también</li></ul><h3>Greenhouse</h3><ul><li>Popular en startups y empresas tech</li><li>Muy orientado a keywords exactas</li><li>Permite scorecards personalizados por reclutador</li><li>Valora cultura y fit con el equipo</li></ul><h3>Lever</h3><ul><li>Empresas medianas y grandes</li><li>Enfocado en candidate experience</li><li>Balance entre keywords y narrativa</li></ul><h3>Taleo (Oracle)</h3><ul><li>Corporaciones tradicionales</li><li>Muy estricto con formato</li><li>Keywords exactas críticas</li></ul><h3>Cómo saber qué ATS usa una empresa</h3><p>Mira la URL del portal de empleo. Suele contener el nombre del ATS: mycompany.workday.com, boards.greenhouse.io/mycompany, etc.</p>`},
+{tag:'Caso de éxito',title:'De 0 entrevistas a 5 ofertas en 30 días',date:'5 jun 2026',read:'7 min',excerpt:'Historia real de cómo optimizar un CV cambió completamente los resultados.',content:`<h2>De 0 entrevistas a 5 ofertas en 30 días</h2><p>Esta es la historia de Laura, diseñadora UX que llevaba 4 meses sin respuestas.</p><h3>El problema</h3><p>Laura aplicaba a 20 ofertas semanales pero no conseguía ni una entrevista. Su CV era visualmente atractivo pero incompatible con ATS.</p><h3>Qué cambiamos</h3><ul><li>Eliminamos columnas y diseño visual</li><li>Añadimos keywords específicas de cada oferta</li><li>Cuantificamos todos sus logros</li><li>Reestructuramos secciones con nombres estándar</li><li>Acortamos de 3 a 2 páginas</li></ul><h3>Resultados</h3><p>En la primera semana con el nuevo CV: 3 entrevistas. En 30 días: 5 ofertas. Aceptó una con salario 25% superior al que pedía inicialmente.</p><h3>Lecciones clave</h3><ul><li>El diseño bonito no sirve si el ATS no puede leerlo</li><li>Adaptar el CV a cada oferta es crucial</li><li>Los números hacen la diferencia</li><li>Un buen CV abre puertas, pero el contenido las mantiene abiertas</li></ul>`},
+{tag:'Guía',title:'Longitud perfecta del CV: ¿1 o 2 páginas?',date:'1 jun 2026',read:'4 min',excerpt:'La respuesta depende de tu experiencia. Descubre la longitud ideal para ti.',content:`<h2>Longitud perfecta del CV: ¿1 o 2 páginas?</h2><p>Esta es una de las preguntas más frecuentes. La respuesta corta: depende.</p><h3>1 página cuando:</h3><ul><li>Tienes menos de 10 años de experiencia</li><li>Eres recién graduado o junior</li><li>Estás haciendo un cambio de sector</li><li>Tu experiencia es muy enfocada</li></ul><h3>2 páginas cuando:</h3><ul><li>Tienes 10+ años de experiencia relevante</li><li>Tu trayectoria muestra progresión clara</li><li>Tienes muchos logros cuantificables</li><li>Aplicas a puestos senior o directivos</li></ul><h3>Nunca más de 2 páginas</h3><p>Los reclutadores dedican 11 segundos de media al primer vistazo. Si tu CV es demasiado largo, no lo leerán completo.</p><h3>Excepciones</h3><p>CVs académicos (academia, investigación) pueden ser más largos. Pero para el 95% de los profesionales, 1-2 páginas es lo ideal.</p>`},
+{tag:'Consejos',title:'Cómo escribir un resumen profesional que enganche',date:'28 may 2026',read:'6 min',excerpt:'El resumen es lo primero que leen. Aprende a escribir uno que destaque.',content:`<h2>Cómo escribir un resumen profesional que enganche</h2><p>El resumen o perfil profesional es la primera sección que leen reclutadores y ATS. Debe enganchar en 3-4 líneas.</p><h3>Fórmula ganadora</h3><p><strong>[Puesto] + [Años exp.] + [Especialización] + [Logro principal] + [Valor que aportas]</strong></p><h3>Ejemplos buenos</h3><p>"Desarrollador Full Stack con 8 años de experiencia en arquitecturas escalables. Especializado en React y Node.js. He liderado equipos de 6 devs y optimizado aplicaciones con +100k usuarios diarios."</p><h3>Ejemplos malos</h3><p>"Profesional motivado buscando nuevas oportunidades para crecer y aportar valor a la empresa." ❌</p><h3>Qué incluir</h3><ul><li>Años de experiencia (número concreto)</li><li>Tu especialización o nicho</li><li>1-2 logros destacados con métricas</li><li>Palabras clave del sector</li></ul><h3>Qué evitar</h3><ul><li>Clichés ("trabajador duro", "perfeccionista")</li><li>Objetivos personales ("busco crecer")</li><li>Información genérica aplicable a cualquiera</li></ul>`},
+{tag:'Técnico',title:'PDF vs DOCX: ¿cuál es mejor para ATS?',date:'25 may 2026',read:'5 min',excerpt:'El formato de archivo importa más de lo que crees.',content:`<h2>PDF vs DOCX: ¿cuál es mejor para ATS?</h2><p>La respuesta ha cambiado con los años. Hoy en día, depende del ATS.</p><h3>PDF: cuándo usarlo</h3><ul><li>ATS modernos (Workday, Greenhouse, Lever)</li><li>Cuando quieres preservar el formato exacto</li><li>Para cualquier oferta que no especifique formato</li></ul><h3>DOCX: cuándo usarlo</h3><ul><li>ATS antiguos (versiones viejas de Taleo)</li><li>Cuando la oferta lo pide explícitamente</li><li>Corporaciones tradicionales</li></ul><h3>El problema del PDF</h3><p>No todos los PDF son iguales. Un PDF generado desde Word se parsea bien. Un PDF escaneado (imagen) no se puede leer.</p><h3>Cómo verificar tu PDF</h3><p>Abre tu PDF, selecciona todo el texto (Ctrl+A) y cópialo. Si puedes pegarlo en un .txt y se lee correctamente, tu PDF es compatible con ATS.</p><h3>Recomendación final</h3><p>Ten ambas versiones listas. Envía PDF por defecto, DOCX si la oferta lo pide o si sospechas que el ATS es antiguo.</p>`},
+{tag:'Tendencias',title:'CV en 2026: lo que funciona y lo que no',date:'20 may 2026',read:'8 min',excerpt:'Actualización completa de las mejores prácticas para CVs este año.',content:`<h2>CV en 2026: lo que funciona y lo que no</h2><p>El mercado laboral ha cambiado. Tu CV también debe hacerlo.</p><h3>Lo que SÍ funciona en 2026</h3><ul><li><strong>Híbrido remoto/presencial:</strong> menciona tu preferencia y flexibilidad</li><li><strong>Skills de IA:</strong> incluso si no eres tech, muestra que sabes usar herramientas de IA</li><li><strong>Logros con impacto:</strong> no solo responsabilidades</li><li><strong>Links verificables:</strong> LinkedIn, portfolio, GitHub</li><li><strong>Micro-logros:</strong> proyectos pequeños pero impactantes</li></ul><h3>Lo que YA NO funciona</h3><ul><li><strong>Objetivos profesionales:</strong> reemplázalos por resúmenes de valor</li><li><strong>Referencias disponibles:</strong> es redundante</li><li><strong>Barras de progreso para skills:</strong> no dicen nada concreto</li><li><strong>Fotos:</strong> cada vez más descartadas por políticas DE&I</li><li><strong>CVs de una sola talla:</strong> debes adaptar a cada oferta</li></ul><h3>Nuevas secciones relevantes</h3><ul><li><strong>Proyectos destacados:</strong> especialmente si tienes poca experiencia</li><li><strong>Publicaciones/Charlas:</strong> si eres experto en tu área</li><li><strong>Voluntariado relevante:</strong> muestra valores y skills</li></ul><h3>Tendencias emergentes</h3><p>Los CVs en video están ganando terreno, pero el CV en texto sigue siendo el estándar. Prepárate para tener ambos.</p>`}
+];
+
+const container=document.getElementById('posts');
+posts.forEach((p,i)=>{
+  const div=document.createElement('div');
+  div.className='post';
+  div.onclick=()=>openModal(i);
+  div.innerHTML=`
+    <span class="post-tag">${p.tag}</span>
+    <h3>${p.title}</h3>
+    <div class="post-meta">${p.date} · ${p.read} lectura</div>
+    <p>${p.excerpt}</p>
+  `;
+  container.appendChild(div);
+});
+
+function openModal(i){
+  document.getElementById('modalBody').innerHTML=posts[i].content;
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+</script>
+</body>
+</html>

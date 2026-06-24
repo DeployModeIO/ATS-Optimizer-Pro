@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATS Optimizer Pro — Análisis, Reparación y Optimización de Currículums</title>
+<meta name="description" content="Analiza, repara y optimiza tu CV para superar filtros ATS. 100% gratis, procesamiento local, sin registro.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07070d;--bg2:#0d0d18;--card:rgba(255,255,255,0.03);
+  --border:rgba(255,255,255,0.08);--text:#e8e8f0;--muted:#8a8aa0;
+  --accent:#6366f1;--accent2:#a855f7;--success:#10b981;--warn:#f59e0b;--danger:#ef4444;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.15),transparent 40%),radial-gradient(circle at 80% 80%,rgba(168,85,247,.12),transparent 40%);z-index:-1}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:100;background:rgba(7,7,13,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.badge{background:rgba(16,185,129,.15);color:var(--success);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.badge::before{content:'';width:6px;height:6px;background:var(--success);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero{text-align:center;padding:80px 0 60px}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;line-height:1.1;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,#a5a5c0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;color:var(--muted);max-width:700px;margin:0 auto 32px}
+.stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:40px}
+.stat{text-align:center}
+.stat-num{font-size:32px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.upload-zone{max-width:700px;margin:40px auto;border:2px dashed var(--border);border-radius:20px;padding:60px 30px;text-align:center;background:var(--card);transition:all .3s}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--accent);background:rgba(99,102,241,.05)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-size:14px;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(99,102,241,.4)}
+.btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent)}
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;backdrop-filter:blur(10px);transition:all .3s}
+.card:hover{border-color:rgba(99,102,241,.4);transform:translateY(-4px)}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14px;margin-bottom:16px}
+.section{padding:60px 0}
+.section-title{font-size:32px;font-weight:800;margin-bottom:12px;text-align:center}
+.section-sub{text-align:center;color:var(--muted);margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+.template-card{background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(168,85,247,.05));border:1px solid var(--border);border-radius:12px;padding:20px;font-family:'Courier New',monospace;font-size:11px;line-height:1.4;color:#c0c0d0;white-space:pre-wrap;min-height:180px}
+footer{border-top:1px solid var(--border);padding:50px 0 30px;margin-top:60px;background:var(--bg2)}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:30px}
+.footer-col h4{font-size:14px;margin-bottom:16px;color:var(--text)}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:4px 0;transition:color .2s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:13px}
+.donate-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff9000,#ff5e00);color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;transition:all .2s}
+.donate-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,94,0,.4)}
+.privacy-note{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--success);display:flex;align-items:center;gap:8px;margin-top:16px;justify-content:center}
+@media(max-width:768px){.nav-links{display:none}.hero{padding:50px 0 30px}}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<div class="logo">ATS OptimizerPRO · v3.0</div>
+<nav class="nav-links">
+<a href="ats_pages/analizador.html">Analizador</a>
+<a href="ats_pages/editor.html">Editor</a>
+<a href="ats_pages/keywords.html">Keywords</a>
+<a href="ats_pages/plantillas.html">Plantillas</a>
+<a href="ats_pages/guias.html">Guías</a>
+<span class="badge">Sistema activo</span>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<section class="hero">
+<h1>Supera el filtro ATS sin fricción.</h1>
+<p>El 75% de los currículums son rechazados automáticamente antes de que un reclutador los vea. Analizamos tu CV contra más de 40 criterios ATS y lo reparamos automáticamente con un clic.</p>
+<a href="ats_pages/analizador.html" class="btn btn-primary">🚀 Analizar CV ahora</a>
+<div class="stats">
+<div class="stat"><div class="stat-num">40+</div><div class="stat-label">Criterios analizados</div></div>
+<div class="stat"><div class="stat-num">Auto</div><div class="stat-label">Reparación 1-click</div></div>
+<div class="stat"><div class="stat-num">98%</div><div class="stat-label">Precisión</div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="grid grid-4">
+<a href="ats_pages/analizador.html" class="card" style="text-decoration:none;color:inherit">
+<h3>🔍 Analizador ATS</h3>
+<p>Escanea tu CV contra 40+ criterios y obtén un reporte detallado.</p>
+<span class="btn btn-ghost">Analizar →</span>
+</a>
+<a href="ats_pages/editor.html" class="card" style="text-decoration:none;color:inherit">
+<h3>✏️ Editor en vivo</h3>
+<p>Edita tu CV y ve cómo mejora tu puntuación en tiempo real.</p>
+<span class="btn btn-ghost">Editar →</span>
+</a>
+<a href="ats_pages/creador.html" class="card" style="text-decoration:none;color:inherit">
+<h3>✨ Creador de CV</h3>
+<p>Crea un CV ATS-friendly desde cero paso a paso.</p>
+<span class="btn btn-ghost">Crear →</span>
+</a>
+<a href="ats_pages/comparador.html" class="card" style="text-decoration:none;color:inherit">
+<h3>⚖️ Comparador</h3>
+<p>Compara tu CV con una oferta de trabajo y mide el match.</p>
+<span class="btn btn-ghost">Comparar →</span>
+</a>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Plantillas ATS-friendly</h2>
+<p class="section-sub">Descarga plantillas garantizadas para pasar filtros ATS</p>
+<div class="grid grid-3">
+<div class="card">
+<div class="template-card">JUAN PÉREZ
+juan@email.com · +34 600 000 000
+
+EXPERIENCIA
+Desarrollador Senior — Tech Co
+2021 - Presente
+
+EDUCACIÓN
+Ing. Informática — UNED</div>
+<a href="ats_pages/plantillas.html" class="btn btn-ghost" style="margin-top:12px;width:100%;justify-content:center">Ver todas →</a>
+</div>
+<div class="card">
+<div class="template-card">JUAN PÉREZ
+Desarrollador Senior
+
+Perfil Dev con 8 años...
+
+Skills
+JavaScript · Python · AWS</div>
+<a href="ats_pages/plantillas.html" class="btn btn-ghost" style="margin-top:12px;width:100%;justify-content:center">Ver todas →</a>
+</div>
+<div class="card">
+<div class="template-card">JUAN PÉREZ
+CFO · MBA
+
+Resumen Ejecutivo
+15+ años en finanzas...
+
+Experiencia
+CFO — Global Corp</div>
+<a href="ats_pages/plantillas.html" class="btn btn-ghost" style="margin-top:12px;width:100%;justify-content:center">Ver todas →</a>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Base de conocimiento</h2>
+<p class="section-sub">Guías para superar cualquier ATS</p>
+<div class="grid grid-3">
+<a href="ats_pages/guias.html" class="card" style="text-decoration:none;color:inherit">
+<h3>📄 Formato compatible ATS</h3>
+<p>Evita tablas, columnas, iconos, gráficos y fuentes no estándar.</p>
+<span class="btn btn-ghost">Leer guía →</span>
+</a>
+<a href="ats_pages/keywords.html" class="card" style="text-decoration:none;color:inherit">
+<h3>🔑 Keywords estratégicas</h3>
+<p>Incluye términos exactos de la oferta de trabajo.</p>
+<span class="btn btn-ghost">Leer guía →</span>
+</a>
+<a href="ats_pages/guias.html" class="card" style="text-decoration:none;color:inherit">
+<h3>📊 Cuantificación de logros</h3>
+<p>Usa números, porcentajes y métricas concretas.</p>
+<span class="btn btn-ghost">Leer guía →</span>
+</a>
+</div>
+</section>
+
+<section class="section">
+<div class="grid grid-4">
+<div class="card"><div class="stat-num">75%</div><p>de los CVs son filtrados automáticamente</p></div>
+<div class="card"><div class="stat-num">11s</div><p>dedica un reclutador a un CV en primera instancia</p></div>
+<div class="card"><div class="stat-num">3x</div><p>más probabilidad con CV optimizado</p></div>
+<div class="card"><div class="stat-num">98%</div><p>de Fortune 500 usa ATS</p></div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<h4>ATS Optimizer Pro</h4>
+<p style="color:var(--muted);font-size:13px">La herramienta más completa para optimizar tu CV y superar filtros ATS. 100% gratis.</p>
+<a href="https://luisrivero1.gumroad.com/l/axwslt" target="_blank" class="donate-btn" style="margin-top:12px">☕ Apoyar el proyecto</a>
+</div>
+<div class="footer-col">
+<h4>Producto</h4>
+<a href="ats_pages/analizador.html">Analizador</a>
+<a href="ats_pages/editor.html">Editor</a>
+<a href="ats_pages/plantillas.html">Plantillas</a>
+<a href="ats_pages/comparador.html">Comparador</a>
+<a href="ats_pages/creador.html">Creador</a>
+</div>
+<div class="footer-col">
+<h4>Recursos</h4>
+<a href="ats_pages/guias.html">Guías ATS</a>
+<a href="ats_pages/keywords.html">Keywords</a>
+<a href="ats_pages/ejemplos.html">Ejemplos</a>
+<a href="ats_pages/blog.html">Blog</a>
+<a href="ats_pages/faq.html">FAQ</a>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<a href="ats_pages/privacidad.html">Privacidad</a>
+<a href="ats_pages/terminos.html">Términos</a>
+<a href="ats_pages/cookies.html">Cookies</a>
+</div>
+</div>
+<div class="privacy-note">🔒 Procesamiento 100% local · Tus datos no se envían a ningún servidor · No recopilamos ni compartimos información</div>
+<div class="footer-bottom">
+<div>© 2026 ATS Optimizer Pro · v3.0.1</div>
+<div>Hecho con ❤️ para profesionales serios</div>
+</div>
+</div>
+</footer>
+</body>
+</html>

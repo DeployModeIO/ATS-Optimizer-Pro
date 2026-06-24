@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guías ATS — ATS Optimizer Pro</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#07070d;--card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.08);--text:#e8e8f0;--muted:#8a8aa0;--accent:#6366f1;--accent2:#a855f7}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.15),transparent 40%),radial-gradient(circle at 80% 80%,rgba(168,85,247,.12),transparent 40%);z-index:-1}
+.container{max-width:1000px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:100;background:rgba(7,7,13,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px}
+main{padding:40px 0}
+h1{font-size:36px;font-weight:800;margin-bottom:8px}
+.subtitle{color:var(--muted);margin-bottom:40px}
+.guide{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px;margin-bottom:20px}
+.guide h2{font-size:24px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.guide h3{margin:20px 0 10px;color:var(--accent)}
+.guide p{color:var(--muted);margin-bottom:12px}
+.guide ul{margin-left:20px;color:var(--muted);margin-bottom:12px}
+.guide li{margin-bottom:6px}
+.do{background:rgba(16,185,129,.08);border-left:3px solid #10b981;padding:12px 16px;border-radius:6px;margin:12px 0}
+.dont{background:rgba(239,68,68,.08);border-left:3px solid #ef4444;padding:12px 16px;border-radius:6px;margin:12px 0}
+footer{border-top:1px solid var(--border);padding:50px 0 30px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:30px}
+.footer-col h4{font-size:14px;margin-bottom:16px}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:4px 0}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;color:var(--muted);font-size:13px;text-align:center}
+.donate-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff9000,#ff5e00);color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px}
+.privacy-note{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:12px;font-size:13px;color:var(--success);text-align:center;margin-top:16px}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">ATS OptimizerPRO</a>
+<nav class="nav-links">
+<a href="analizador.html">Analizador</a>
+<a href="editor.html">Editor</a>
+<a href="keywords.html">Keywords</a>
+<a href="plantillas.html">Plantillas</a>
+<a href="guias.html">Guías</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<h1>📚 Guías ATS completas</h1>
+<p class="subtitle">Todo lo que necesitas saber para superar cualquier sistema de selección automática.</p>
+
+<div class="guide">
+<h2>📄 1. Formato compatible ATS</h2>
+<p>El formato de tu CV es crítico. Un diseño bonito pero incompatible con ATS te descartará automáticamente.</p>
+
+<h3>✅ Qué SÍ hacer</h3>
+<ul>
+<li>Usar PDF con capa de texto (no imagen escaneada)</li>
+<li>O DOCX simple si la oferta lo permite</li>
+<li>Fuentes estándar: Arial, Calibri, Times New Roman, Helvetica</li>
+<li>Tamaño 10-12pt para cuerpo, 14-16pt para títulos</li>
+<li>Márgenes de 2-2.5 cm</li>
+<li>Estructura clara con secciones bien definidas</li>
+<li>Usar bullets simples (-, •, *)</li>
+</ul>
+
+<h3>❌ Qué EVITAR</h3>
+<ul>
+<li>Columnas múltiples (los parsers las leen mal)</li>
+<li>Tablas (incluso invisibles)</li>
+<li>Iconos, logos, gráficos, fotos</li>
+<li>Encabezados y pies de página (muchos ATS los ignoran)</li>
+<li>Fuentes decorativas o no estándar</li>
+<li>Text boxes o formas</li>
+<li>Infografías o CVs visuales</li>
+<li>Archivos PSD, AI, INDD</li>
+</ul>
+
+<div class="do"><strong>💡 Consejo:</strong> Guarda siempre una versión en .txt de tu CV para verificar que el texto se extrae correctamente.</div>
+</div>
+
+<div class="guide">
+<h2>🔑 2. Keywords estratégicas</h2>
+<p>Los ATS buscan coincidencias literales entre tu CV y la oferta. Las keywords correctas son la diferencia entre pasar o ser descartado.</p>
+
+<h3>Cómo identificar las keywords de una oferta</h3>
+<ul>
+<li><strong>Hard skills:</strong> habilidades técnicas mencionadas (JavaScript, SQL, SEO...)</li>
+<li><strong>Herramientas:</strong> software específico (Salesforce, SAP, Figma...)</li>
+<li><strong>Certificaciones:</strong> títulos requeridos (PMP, AWS, CFA...)</li>
+<li><strong>Acciones clave:</strong> verbos usados (gestionar, liderar, desarrollar...)</li>
+<li><strong>Sector:</strong> terminología específica del industry</li>
+</ul>
+
+<h3>Cómo incorporarlas</h3>
+<ul>
+<li>Usa las palabras <strong>exactas</strong> de la oferta (no sinónimos)</li>
+<li>Inclúyelas en el resumen, experiencia y skills</li>
+<li>Menciónalas 2-3 veces de forma natural</li>
+<li>No hagas keyword stuffing (el reclutador lo verá)</li>
+</ul>
+
+<div class="do"><strong>✅ Ejemplo:</strong> Si la oferta dice "experiencia en Agile/Scrum", escribe exactamente "Agile" y "Scrum" en tu CV, no "metodologías ágiles".</div>
+<div class="dont"><strong>❌ Error:</strong> Poner "experto en Microsoft Office" cuando la oferta pide "Excel avanzado". Son términos diferentes para el ATS.</div>
+</div>
+
+<div class="guide">
+<h2>📊 3. Cuantificación de logros</h2>
+<p>Los números hacen tu CV 3x más efectivo. Los reclutadores y ATS priorizan CVs con métricas concretas.</p>
+
+<h3>Fórmula STAR cuantificada</h3>
+<p><strong>Situación + Tarea + Acción + Resultado numérico</strong></p>
+
+<h3>Ejemplos de logros cuantificados</h3>
+<ul>
+<li>❌ "Responsable de ventas" → ✅ "Aumenté ventas un 35% en 12 meses"</li>
+<li>❌ "Gestioné equipo" → ✅ "Lideré equipo de 8 personas"</li>
+<li>❌ "Mejoré procesos" → ✅ "Reduje tiempo de entrega de 15 a 5 días"</li>
+<li>❌ "Atendí clientes" → ✅ "Gestioné cartera de 150 clientes con 95% satisfacción"</li>
+<li>❌ "Hice marketing" → ✅ "Generé 500 leads cualificados con ROI del 300%"</li>
+</ul>
+
+<h3>Métricas que puedes usar</h3>
+<ul>
+<li><strong>%:</strong> aumentos, reducciones, mejoras</li>
+<li><strong>€/$:</strong> presupuestos gestionados, ventas, ahorros</li>
+<li><strong>Números:</strong> personas, proyectos, clientes</li>
+<li><strong>Tiempo:</strong> días, meses, horas ahorradas</li>
+<li><strong>Frecuencia:</strong> veces, periódicamente</li>
+</ul>
+</div>
+
+<div class="guide">
+<h2>📋 4. Estructura de secciones</h2>
+<p>El orden y nombre de las secciones importa. Los ATS buscan secciones estándar.</p>
+
+<h3>Orden recomendado</h3>
+<ol style="margin-left:20px;color:var(--muted)">
+<li><strong>Datos de contacto</strong> (nombre, email, teléfono, LinkedIn)</li>
+<li><strong>Resumen / Perfil profesional</strong> (2-4 líneas)</li>
+<li><strong>Experiencia profesional</strong> (orden cronológico inverso)</li>
+<li><strong>Educación</strong></li>
+<li><strong>Skills / Habilidades</strong></li>
+<li><strong>Certificaciones</strong> (opcional)</li>
+<li><strong>Idiomas</strong> (opcional)</li>
+<li><strong>Proyectos</strong> (opcional)</li>
+</ol>
+
+<h3>Nombres estándar de secciones</h3>
+<p>Usa estos nombres exactos. Evita creatividades como "Mi viaje" o "Trayectoria".</p>
+<ul>
+<li>EXPERIENCIA / EXPERIENCIA PROFESIONAL</li>
+<li>EDUCACIÓN / FORMACIÓN</li>
+<li>SKILLS / HABILIDADES / COMPETENCIAS</li>
+<li>RESUMEN / PERFIL / PERFIL PROFESIONAL</li>
+<li>CERTIFICACIONES</li>
+<li>IDIOMAS</li>
+<li>PROYECTOS</li>
+</ul>
+</div>
+
+<div class="guide">
+<h2>⚡ 5. Errores comunes que te descartan</h2>
+<ul>
+<li><strong>Foto incluida:</strong> En países anglosajones es motivo de descarte inmediato por políticas anti-discriminación</li>
+<li><strong>Datos personales excesivos:</strong> Edad, estado civil, DNI no son necesarios</li>
+<li><strong>Errores ortográficos:</strong> Los ATS penalizan, los reclutadores descartan</li>
+<li><strong>Email poco profesional:</strong> usa nombre.apellido@gmail.com, no apodos</li>
+<li><strong>CV genérico:</strong> adapta cada CV a la oferta específica</li>
+<li><strong>Mentiras:</strong> se detectan en entrevista y en verificaciones</li>
+<li><strong>Demasiada información:</strong> máximo 2 páginas (1 si &lt;10 años exp.)</li>
+<li><strong>Referencias:</strong> "Referencias disponibles bajo petición" es redundante</li>
+</ul>
+</div>
+
+<div class="guide">
+<h2>🎯 6. Cómo funcionan los ATS modernos</h2>
+<p>Entender la tecnología te da ventaja. Los ATS actuales usan IA y procesamiento de lenguaje natural.</p>
+
+<h3>Proceso típico</h3>
+<ol style="margin-left:20px;color:var(--muted)">
+<li><strong>Parsing:</strong> el ATS extrae texto de tu CV</li>
+<li><strong>Clasificación:</strong> categoriza información (experiencia, educación, skills)</li>
+<li><strong>Ranking:</strong> puntúa cada CV según coincidencia con la oferta</li>
+<li><strong>Filtrado:</strong> descarta los que no superan umbral (normalmente top 20-30%)</li>
+<li><strong>Revisión humana:</strong> solo los mejor puntuados los ve un reclutador</li>
+</ol>
+
+<h3>ATS más comunes</h3>
+<ul>
+<li><strong>Workday:</strong> usado por Fortune 500</li>
+<li><strong>Greenhouse:</strong> popular en startups y tech</li>
+<li><strong>Lever:</strong> empresas medianas y grandes</li>
+<li><strong>Taleo (Oracle):</strong> corporaciones tradicionales</li>
+<li><strong>iCIMS:</strong> empresas grandes</li>
+<li><strong>SmartRecruiters:</strong> internacional</li>
+</ul>
+
+<div class="do"><strong>💡 Tip:</strong> Si sabes qué ATS usa la empresa, puedes optimizar aún más. Greenhouse valora keywords exactas, Workday prioriza estructura clara.</div>
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col"><h4>ATS Optimizer Pro</h4><p style="color:var(--muted);font-size:13px">100% gratis</p><a href="https://luisrivero1.gumroad.com/l/axwslt" target="_blank" class="donate-btn" style="margin-top:12px">☕ Apoyar</a></div>
+<div class="footer-col"><h4>Producto</h4><a href="analizador.html">Analizador</a><a href="editor.html">Editor</a><a href="plantillas.html">Plantillas</a><a href="comparador.html">Comparador</a></div>
+<div class="footer-col"><h4>Recursos</h4><a href="guias.html">Guías</a><a href="ejemplos.html">Ejemplos</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a></div>
+<div class="footer-col"><h4>Legal</h4><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="cookies.html">Cookies</a></div>
+</div>
+<div class="privacy-note">🔒 Procesamiento 100% local · No recopilamos datos · Todo gratis</div>
+<div class="footer-bottom">© 2026 ATS Optimizer Pro · v3.0.1</div>
+</div>
+</footer>
+</body>
+</html>

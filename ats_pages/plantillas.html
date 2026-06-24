@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plantillas ATS-friendly — ATS Optimizer Pro</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#07070d;--card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.08);--text:#e8e8f0;--muted:#8a8aa0;--accent:#6366f1;--accent2:#a855f7}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,rgba(99,102,241,.15),transparent 40%),radial-gradient(circle at 80% 80%,rgba(168,85,247,.12),transparent 40%);z-index:-1}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:100;background:rgba(7,7,13,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px}
+main{padding:40px 0}
+h1{font-size:32px;font-weight:800;margin-bottom:8px}
+.subtitle{color:var(--muted);margin-bottom:30px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.template{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .3s}
+.template:hover{border-color:var(--accent);transform:translateY(-4px)}
+.template-preview{background:#fff;color:#111;padding:20px;border-radius:8px;font-family:Georgia,serif;font-size:11px;line-height:1.4;min-height:280px;margin-bottom:16px;white-space:pre-wrap}
+.template h3{margin-bottom:8px}
+.template p{color:var(--muted);font-size:13px;margin-bottom:16px}
+.btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-weight:600;font-size:13px;text-decoration:none;display:inline-block}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+footer{border-top:1px solid var(--border);padding:50px 0 30px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:30px}
+.footer-col h4{font-size:14px;margin-bottom:16px}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:4px 0}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;color:var(--muted);font-size:13px;text-align:center}
+.donate-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff9000,#ff5e00);color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px}
+.privacy-note{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:12px;font-size:13px;color:var(--success);text-align:center;margin-top:16px}
+.tip{background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.2);border-radius:12px;padding:20px;margin-bottom:30px}
+.tip h3{color:var(--accent);margin-bottom:8px}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<a href="../index.html" class="logo">ATS OptimizerPRO</a>
+<nav class="nav-links">
+<a href="analizador.html">Analizador</a>
+<a href="editor.html">Editor</a>
+<a href="keywords.html">Keywords</a>
+<a href="plantillas.html">Plantillas</a>
+<a href="guias.html">Guías</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+<h1>📄 Plantillas ATS-friendly</h1>
+<p class="subtitle">Plantillas diseñadas específicamente para superar filtros ATS. Descárgalas gratis.</p>
+
+<div class="tip">
+<h3>💡 ¿Por qué estas plantillas funcionan?</h3>
+<p style="color:var(--muted);font-size:14px">Están optimizadas para parsers ATS: sin columnas, sin tablas, sin iconos, sin gráficos. Solo texto limpio y estructurado que cualquier sistema puede leer correctamente.</p>
+</div>
+
+<div class="grid-3" id="templates"></div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col"><h4>ATS Optimizer Pro</h4><p style="color:var(--muted);font-size:13px">100% gratis</p><a href="https://luisrivero1.gumroad.com/l/axwslt" target="_blank" class="donate-btn" style="margin-top:12px">☕ Apoyar</a></div>
+<div class="footer-col"><h4>Producto</h4><a href="analizador.html">Analizador</a><a href="editor.html">Editor</a><a href="plantillas.html">Plantillas</a><a href="comparador.html">Comparador</a></div>
+<div class="footer-col"><h4>Recursos</h4><a href="guias.html">Guías</a><a href="ejemplos.html">Ejemplos</a><a href="blog.html">Blog</a><a href="faq.html">FAQ</a></div>
+<div class="footer-col"><h4>Legal</h4><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="cookies.html">Cookies</a></div>
+</div>
+<div class="privacy-note">🔒 Procesamiento 100% local · No recopilamos datos · Todo gratis</div>
+<div class="footer-bottom">© 2026 ATS Optimizer Pro · v3.0.1</div>
+</div>
+</footer>
+
+<script>
+const templates=[
+{name:'Clásico Profesional',desc:'Ideal para cualquier sector. Estructura tradicional y limpia.',content:`MARÍA GARCÍA LÓPEZ
+Directora de Marketing
+maria@email.com · +34 600 123 456 · linkedin.com/in/mariagarcia
+
+RESUMEN PROFESIONAL
+Directora de Marketing con 10+ años de experiencia liderando estrategias digitales en empresas del IBEX 35. Especializada en growth marketing y branding. He gestionado presupuestos de 2M€ y aumentado el ROI un 340%.
+
+EXPERIENCIA PROFESIONAL
+
+Directora de Marketing — TechCorp España
+2020 - Presente
+- Lidero equipo de 12 personas y presupuesto anual de 2M€
+- Aumenté leads cualificados un 180% en 18 meses
+- Implementé estrategia omnicanal con ROI del 340%
+- Reduje CAC un 45% mediante automatización
+
+Head of Digital — StartupXYZ
+2017 - 2020
+- Escalé empresa de 0 a 50,000 usuarios
+- Gestioné campañas con 5M€ de inversión
+- Construí equipo de marketing desde cero
+
+EDUCACIÓN
+MBA — IE Business School (2015-2017)
+Lic. Marketing — Universidad Complutense (2009-2013)
+
+SKILLS
+Marketing Digital · SEO/SEM · Google Ads · Analytics · HubSpot · Salesforce · Liderazgo · Estrategia`},
+{name:'Técnico / IT',desc:'Perfecto para desarrolladores, ingenieros y perfiles técnicos.',content:`CARLOS RUIZ
+Senior Full Stack Developer
+carlos@email.com · +34 600 222 333 · github.com/carlosruiz
+
+PERFIL
+Desarrollador Full Stack con 8 años de experiencia en arquitecturas escalables. Especializado en React, Node.js y AWS. He liderado equipos de 6 devs y optimizado aplicaciones con +100k usuarios diarios.
+
+EXPERIENCIA
+
+Senior Full Stack Developer — GlobalTech
+2021 - Presente
+- Arquitecté microservicios que procesan 10M requests/día
+- Reduje latencia de API en 65% optimizando queries
+- Mentoría a 4 desarrolladores junior
+- Implementé CI/CD que redujo deploys de 2h a 15min
+
+Full Stack Developer — DigitalAgency
+2018 - 2021
+- Desarrollé 15+ aplicaciones web para clientes enterprise
+- Migré monolito legacy a arquitectura serverless
+- Ahorro de 40% en costos de infraestructura
+
+EDUCACIÓN
+M.Sc. Computer Science — UPM (2016-2018)
+Ing. Informática — UNED (2012-2016)
+
+SKILLS TÉCNICAS
+JavaScript · TypeScript · React · Next.js · Node.js · Python · AWS · Docker · Kubernetes · PostgreSQL · MongoDB · Redis · GraphQL · CI/CD · Git
+
+CERTIFICACIONES
+AWS Solutions Architect · Kubernetes CKA · Scrum Master`},
+{name:'Ejecutivo / C-Level',desc:'Para directivos, CEOs, CFOs y posiciones senior.',content:`ANA MARTÍNEZ
+Chief Financial Officer
+ana@email.com · +34 600 444 555 · linkedin.com/in/anamartinez
+
+RESUMEN EJECUTIVO
+CFO con 20+ años de experiencia en empresas multinacionales. Experta en estrategia financiera, M&A y reestructuraciones. He gestionado portfolios de 500M€ y liderado 3 operaciones de M&A valoradas en 200M€+.
+
+EXPERIENCIA DIRECTIVA
+
+Chief Financial Officer — Multinacional SA
+2019 - Presente
+- Responsable de finanzas globales con equipo de 80 personas
+- Gestiono P&L de 500M€ en 12 países
+- Lideré reestructuración que ahorró 30M€ anuales
+- Cerré ronda de financiación de 150M€
+
+VP Finance — Corporación XYZ
+2014 - 2019
+- Reportaba directamente al CEO y Board
+- Implementé ERP global en 18 meses
+- Reduje deuda corporativa en 25%
+
+EDUCACIÓN
+MBA — Harvard Business School
+M.Sc. Finance — London Business School
+Lic. Economía — Universidad de Navarra
+
+IDIOMAS
+Español (nativo) · Inglés (C2) · Francés (B2)
+
+AFILIACIONES
+Member · Financial Executives International
+Board Member · Asociación Española de Finanzas`},
+{name:'Junior / Recién graduado',desc:'Para quienes empiezan su carrera profesional.',content:`LAURA SÁNCHEZ
+Graduada en Marketing Digital
+laura@email.com · +34 600 666 777 · linkedin.com/in/laurasanchez
+
+PERFIL
+Recién graduada en Marketing Digital con prácticas en agencias líderes. Apasionada por SEO, content marketing y analytics. Busco oportunidad como Marketing Junior para aplicar mis conocimientos y seguir creciendo.
+
+EDUCACIÓN
+Grado en Marketing Digital — ESIC (2020-2024)
+- Media: 8.5/10
+- Proyecto final: Estrategia de growth hacking (Matrícula)
+- Erasmus 6 meses en Dublín
+
+Certificaciones
+- Google Analytics Certified (2024)
+- HubSpot Inbound Marketing (2023)
+- Meta Blueprint (2023)
+
+EXPERIENCIA
+
+Becaria de Marketing — Agencia Creativa
+Jun 2023 - Dic 2023
+- Gestioné redes sociales de 5 clientes (15k seguidores totales)
+- Creé 50+ piezas de contenido con engagement medio del 4.5%
+- Apoyé en campañas de email marketing (20k suscriptores)
+
+Becaria SEO — Digital Company
+Jun 2022 - Jun 2023
+- Auditorías SEO de 10 webs de clientes
+- Redacción de 30+ artículos optimizados para SEO
+- Aumento medio del 40% en tráfico orgánico
+
+PROYECTOS ACADÉMICOS
+- Estrategia de lanzamiento para startup ficticia (notable)
+- Análisis de competencia de marca real (sobresaliente)
+
+SKILLS
+SEO · SEM · Google Ads · Analytics · Redes Sociales · Canva · WordPress · Mailchimp · Office avanzado
+
+IDIOMAS
+Español (nativo) · Inglés (C1) · Francés (B1)`},
+{name:'Creativo / Diseño',desc:'Para diseñadores, creativos y perfiles visuales.',content:`PABLO MORENO
+Senior UX/UI Designer
+pablo@email.com · +34 600 888 999 · dribbble.com/pablomoreno
+
+PERFIL
+Diseñador UX/UI con 7 años de experiencia creando productos digitales para startups y empresas consolidadas. Especializado en design systems, user research y accesibilidad. He diseñado apps usadas por +500k usuarios.
+
+EXPERIENCIA
+
+Senior UX Designer — TechStartup
+2021 - Presente
+- Diseño de producto principal usado por 500k usuarios
+- Creé design system adoptado por 4 equipos de producto
+- Reduje tiempo de onboarding de usuarios en 60%
+- Lidero research con 50+ entrevistas de usuarios al año
+
+UX/UI Designer — DigitalAgency
+2018 - 2021
+- Diseñé 20+ productos web y mobile para clientes
+- Trabajé con marcas como BBVA, Inditex, Telefónica
+- Premiado en Awwwards por proyecto web
+
+EDUCACIÓN
+Grado en Diseño Digital — Elisava (2014-2018)
+Máster UX Research — UOC (2019-2020)
+
+HERRAMIENTAS
+Figma · Sketch · Adobe XD · Photoshop · Illustrator · InVision · ProtoPie · Miro · Notion
+
+SKILLS
+User Research · Wireframing · Prototyping · Design Systems · Accessibility (WCAG) · Usability Testing · Information Architecture · Interaction Design
+
+PREMIOS
+- Awwwards Site of the Day (2020)
+- CSS Design Awards (2019)`},
+{name:'Ventas / Comercial',desc:'Para comerciales, account managers y perfiles de ventas.',content:`JAVIER DÍAZ
+Senior Account Executive
+javier@email.com · +34 600 111 222 · linkedin.com/in/javierdiaz
+
+RESUMEN
+Account Executive con 9 años de experiencia en ventas B2B SaaS. Historial consistente superando quota (120-150% los últimos 5 años). Especializado en enterprise deals de 100k€+.
+
+EXPERIENCIA
+
+Senior Account Executive — SaaSCorp
+2021 - Presente
+- Superé quota 4/4 años (125%, 140%, 135%, 150%)
+- Cerré 45+ deals enterprise valorados en 8M€ totales
+- Deal más grande: 450k€ contrato anual
+- Pipeline management de 3M€ trimestrales
+
+Account Executive — CloudTech
+2018 - 2021
+- Superé quota 3/4 años
+- Gestioné 80+ cuentas enterprise
+- Aumenté revenue de territorio en 200%
+
+Sales Development Rep — StartupABC
+2016 - 2018
+- Generé 500+ oportunidades cualificadas
+- Promovido a AE en 18 meses (top 5% de la compañía)
+
+EDUCACIÓN
+ADE + Marketing — ESADE (2012-2016)
+
+SKILLS
+Salesforce · HubSpot · LinkedIn Sales Navigator · Cold Outreach · Negotiation · Pipeline Management · Forecasting · Demo · Proposal · Closing
+
+LOGROS
+- President's Club 2022, 2023, 2024
+- Top performer Q3 2023 (Europa)
+- 95% retention rate en cartera de clientes`}
+];
+
+const container=document.getElementById('templates');
+templates.forEach((t,i)=>{
+  const div=document.createElement('div');
+  div.className='template';
+  div.innerHTML=`
+    <div class="template-preview">${t.content}</div>
+    <h3>${t.name}</h3>
+    <p>${t.desc}</p>
+    <button class="btn btn-primary" onclick="download(${i})">📥 Descargar plantilla</button>
+  `;
+  container.appendChild(div);
+});
+
+function download(i){
+  const blob=new Blob([templates[i].content],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`plantilla-${templates[i].name.toLowerCase().replace(/\s+/g,'-')}.txt`;
+  a.click();
+}
+</script>
+</body>
+</html>
